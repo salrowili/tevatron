@@ -240,7 +240,7 @@ def main():
     logger.info(f"  Total optimization steps = {total_train_steps}")
 
     train_metrics = []
-    for epoch in tqdm(range(num_epochs), desc=f"Epoch ... (1/{num_epochs})", position=0):
+    for epoch in tqdm(range(num_epochs), desc=f"Epoch ... (1/{num_epochs})", position=0, leave=True):
         # ======================== Training ================================
         # Create sampling rng
         rng, input_rng = jax.random.split(rng)
@@ -258,7 +258,7 @@ def main():
             ), 2)
 
         # train
-        epochs = tqdm(range(steps_per_epoch), desc="Training...", position=1, leave=False)
+        epochs = tqdm(range(steps_per_epoch), desc="Training...", position=1, leave=Truee)
         for step in epochs:
             cur_step = epoch * (len(train_dataset) // train_batch_size) + step
             batch = next(train_loader)
