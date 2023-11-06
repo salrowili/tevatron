@@ -17,7 +17,8 @@ from transformers import (
     HfArgumentParser,
     set_seed,
 )
-
+import os
+os.environ['TRANSFORMERS_NO_ADVISORY_WARNINGS'] = 'true'
 from tevatron.arguments import ModelArguments, DataArguments, TevatronTrainingArguments
 from tevatron.tevax.training import TiedParams, RetrieverTrainState, retriever_train_step, grad_cache_train_step, \
     DualParams
