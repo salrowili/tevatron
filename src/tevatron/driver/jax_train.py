@@ -90,9 +90,7 @@ def main():
     else:
         data_files = None
 
-    train_dataset = \
-        datasets.load_dataset(data_args.dataset_name, data_args.dataset_language, cache_dir=model_args.cache_dir,
-                              data_files=data_files)[data_args.dataset_split]
+    train_dataset = datasets.load_dataset(data_args.dataset_name, "arabic", cache_dir=model_args.cache_dir,data_files=data_files,split="train")
 
     def tokenize_train(example):
         tokenize = partial(tokenizer, return_attention_mask=False, return_token_type_ids=False, padding=False,
