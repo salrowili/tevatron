@@ -259,7 +259,7 @@ def main():
             ), 2)
 
         # train
-        epochs = tqdm(range(steps_per_epoch), desc="Training...", position=1, leave=Truee)
+        epochs = tqdm(range(steps_per_epoch), desc="Training...", position=1, leave=True)
         for step in epochs:
             cur_step = epoch * (len(train_dataset) // train_batch_size) + step
             batch = next(train_loader)
