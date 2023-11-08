@@ -53,7 +53,7 @@ class HFQueryDataset:
             data_files = {data_args.dataset_split: data_files}
         self.dataset = load_dataset(data_args.dataset_name,
                                     data_args.dataset_language,
-                                    data_files=data_files, cache_dir=cache_dir, use_auth_token=True)[data_args.dataset_split]
+                                    data_files=data_files, cache_dir=cache_dir)[data_args.dataset_split]
         self.preprocessor = PROCESSOR_INFO[data_args.dataset_name][1] if data_args.dataset_name in PROCESSOR_INFO \
             else DEFAULT_PROCESSORS[1]
         self.tokenizer = tokenizer
